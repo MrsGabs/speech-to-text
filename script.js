@@ -12,22 +12,24 @@
 
 //SPEECH TO TEXT
 let p = document.querySelector("p")
-if ('speechSynthesis' in window) {
+if ("speechSynthesis" in window) {
     // new speech recognition object
     var recognition = new window.webkitSpeechRecognition();
-    // Recognition start event handler
-    recognition.start = () => { 
-        console.log('Voice recognition started. Try speaking into the microphone.');
-    }
+  
+    // This will run when the speech recognition service returns a result
+    recognition.onstart = function() {
+      console.log("Voice recognition started. Try speaking into the microphone.");
+    };
+
     recognition.onresult = function(event) {
-        var transcript = event.results[0][0].transcript;
-        p.innerHTML = transcript
-      };
-      
-      // start recognition
-      recognition.start();
-      //   .....
-    } else {
-      console.log("Speech recognition not supported 😢");
-      // code to handle error
-    }
+      var transcript = event.results[0][0].transcript;
+      p.innerHTML = transcript
+    };
+    
+    // start recognition
+    recognition.start();
+    //   .....
+  } else {
+    console.log("Speech recognition not supported 😢");
+    // code to handle error
+  }
