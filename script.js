@@ -6,6 +6,7 @@
 //     window.speechSynthesis.speak(msg)
 // }
 
+
 // window.addEventListener("click", fala)
 
 
@@ -29,12 +30,12 @@ if ("speechSynthesis" in window) {
     var transcript = event.results[0][0].transcript.toLowerCase().normalize("NFD").split('.').join("")
     p.innerHTML = transcript
 
-      if (transcript == "smoke") {
-        img.src = "smoke.png"
+      if (transcript == "dumb") {
+        img.src = "https://avatars.githubusercontent.com/u/116086711?v=4"
       } if(transcript == "youtube"){
         window.open("https://www.youtube.com")
       } if (transcript == "soup") {
-        img.src = "soup.png"
+        img.src = "https://avatars.githubusercontent.com/u/125106946?v=4"
       }
 
     };
